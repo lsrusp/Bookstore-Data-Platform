@@ -4,10 +4,6 @@
 /* ######################################################### */"""
 
 
-get_ipython().system(' pip install selenium')
-get_ipython().system(' pip install pandasql')
-
-
 import pandas as pd
 from glob import glob ## to search and list downloaded files
 from selenium import webdriver ## to get links and ROI pages
@@ -36,7 +32,7 @@ dbName = 'cayenaDB'
 # ## Data manipulation and ETL: Functions to map attributes from html files -> Return a list with all extract books information
 def mapAttributesFromScraping(linksPath = './links.txt'):
     
-    print('\n\n\nData manipulation and ETL in progress...\n\n\n')
+    print('Data manipulation and ETL in progress...')
 
     links = open(linksPath,"r")
     
@@ -90,7 +86,7 @@ def mapAttributesFromScraping(linksPath = './links.txt'):
 
 
 
-def createDatabase(dbName, user = 'postgres', pwd = 'postgres'):
+def createDatabase(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres'):
     try:
         #establishing the connection
         conn = psycopg2.connect(
@@ -110,7 +106,7 @@ def createDatabase(dbName, user = 'postgres', pwd = 'postgres'):
     except psycopg2.Error as e:
         print('Database {} already exists!!'.format(dbName))
         
-def insertData(dbName, user = 'postgres', pwd = 'postgres'):
+def insertData(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres'):
         
     books = mapAttributesFromScraping("./links.txt")
 
@@ -165,8 +161,6 @@ def insertData(dbName, user = 'postgres', pwd = 'postgres'):
               
     except psycopg2.Error as e:
             print(e)
-
-    sys.exit(0)
     
     
     

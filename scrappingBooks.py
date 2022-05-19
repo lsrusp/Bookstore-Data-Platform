@@ -3,10 +3,6 @@
 /* @Lucas Santiago Rodrigues -- lucas1613@gmail.com          */
 /* ######################################################### */"""
 
-get_ipython().system(' pip install selenium')
-get_ipython().system(' pip install pandasql')
-
-
 import pandas as pd
 from glob import glob ## to search and list downloaded files
 from selenium import webdriver ## to get links and ROI pages
@@ -26,7 +22,7 @@ if not sys.warnoptions:
 # ## Script to scrape data from Internet giving a URL source -> Save a txt file with all book links from URL
 def getLinksPages():
     
-    print('\n\n\nScrapping from https://books.toscrape.com/ ...\n\n\n')
+    print('Scrapping from https://books.toscrape.com/ ...')
     
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("headless")
@@ -57,9 +53,7 @@ def getLinksPages():
 
     links.close()
     driver.close()
-    print('DONE... Saved in ./links.txt file')
-    
-    sys.exit(0)
+    # print('DONE... Saved in ./links.txt file')
     
 #################################
 #################################
