@@ -111,6 +111,8 @@ def createDatabase(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres', ver
         else:
             pass
         
+    return ""
+        
 def insertData(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres', verbose=True):
         
     books = mapAttributesFromScraping("./links.txt")
@@ -167,6 +169,7 @@ def insertData(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres', verbose
     except psycopg2.Error as e:
             print(e)
     
+    return ""
     
     
 #################################
