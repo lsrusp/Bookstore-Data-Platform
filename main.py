@@ -104,7 +104,7 @@ def amountCopiesBooks(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres'):
 
     return table
 
-def queryingApp(sqlQuery, dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres'):
+def queryingApp(sqlQuery, dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres', verbose=True):
     
     try:
         conn = psycopg2.connect(
@@ -139,13 +139,13 @@ def queryingApp(sqlQuery, dbName = 'cayenaDB', user = 'postgres', pwd = 'postgre
                     row_insert += [result.iloc[row,col]]
 
                 table.add_row(row_insert)
+            if(verbose): print(table)
         else:
-            return '\n[Querying App] Empty SQL result\n'
+            if(verbose): print('\n[Querying App] Empty SQL result\n')
 
     except psycopg2.Error as e:
         print(e)
         
-    return table
 
 #################################
 #################################
@@ -168,11 +168,11 @@ Command number: """)
         if(len(value) == 1):
             
             if(int(value) == 1):
-                print(avgPrinceByRating())
+                avgPrinceByRating()
                 print('\n\n') 
 
             elif( int(value) == 2):
-                print(amountCopiesBooks())    
+                amountCopiesBooks()
                 print('\n\n') 
 
             elif(int(value) == 0):

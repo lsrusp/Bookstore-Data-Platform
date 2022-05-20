@@ -86,7 +86,7 @@ def mapAttributesFromScraping(linksPath = './links.txt'):
 
 
 
-def createDatabase(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres'):
+def createDatabase(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres', verbose=True):
     try:
         #establishing the connection
         conn = psycopg2.connect(
@@ -102,11 +102,16 @@ def createDatabase(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres'):
 
         #Creating a database
         cursor.execute(sql)
-        print('Database {} was created...'.format(dbName))
+        if(verbose): 
+            print('Database {} was created...'.format(dbName))
+            
     except psycopg2.Error as e:
-        print('Database {} already exists!!'.format(dbName))
+        if(verbose):
+            print('Database {} already exists!!'.format(dbName))
+        else:
+            pass
         
-def insertData(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres'):
+def insertData(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres', verbose=True):
         
     books = mapAttributesFromScraping("./links.txt")
 
@@ -157,7 +162,7 @@ def insertData(dbName = 'cayenaDB', user = 'postgres', pwd = 'postgres'):
             except psycopg2.Error as e:
                 print(e)
                 
-        print("{} Books inserted".format(insertedBooks))
+        if(verbose):print("{} Books inserted".format(insertedBooks))
               
     except psycopg2.Error as e:
             print(e)

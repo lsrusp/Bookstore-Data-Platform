@@ -20,9 +20,9 @@ if not sys.warnoptions:
 
 
 # ## Script to scrape data from Internet giving a URL source -> Save a txt file with all book links from URL
-def getLinksPages():
+def getLinksPages(verbose=True):
     
-    print('Scrapping from https://books.toscrape.com/ ...')
+    if(verbose): print('Scrapping from https://books.toscrape.com/ ...')
     
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("headless")
@@ -53,7 +53,6 @@ def getLinksPages():
 
     links.close()
     driver.close()
-    # print('DONE... Saved in ./links.txt file')
     
 #################################
 #################################
