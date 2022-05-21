@@ -36,4 +36,4 @@ I'am use the Apache Airflow to schedule a DAG with four tasks to scrapping, tran
 
 #### Author
 Lucas Santiago Rodrigues 
-Contato: 17 992487365 / [lucas1613@gmail.com](lucas1613@gmail.com)
+- Contato: 17 992487365 / [lucas1613@gmail.com](lucas1613@gmail.com)
