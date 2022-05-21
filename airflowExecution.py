@@ -58,7 +58,7 @@ with DAG(dag_id='update_books',
 
     #transform and insert data into postgres table
     t3 = PythonOperator(
-        task_id='transformUpdateData',
+        task_id='transformData',
         python_callable= processingBooks.insertData,
         dag=dag
     )
