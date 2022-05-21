@@ -1,7 +1,7 @@
 ## Bookstore Data Platform - Documentation 
 
 ### Description
-This project provides a command-line tool to support data analysis based on SQL functions over scrapped data from a web source. Besides, the tool executes background routines to update the data between defined intervals, such as daily or even hourly, using the Airflow structure. The tool was based on Python programming language, storing the scrapped into an environment PostgreSQL to be executed SQL statements.
+This project provides a command-line tool to support data analysis based on SQL functions over scrapped data from a web source. Besides using the Airflow structure, the tool executes background routines to update the data between defined intervals, such as daily or hourly. The tool was based on Python programming language, storing the scrapped into an environment PostgreSQL to be executed SQL statements.
 
 ### Requirements
  - Python Environment 
@@ -21,18 +21,18 @@ Command-List:
 
  - **0** -> Exit of program
  - **1** -> Execute the query to retrieve the average price by rating the book
- - **2** -> Execute the query retrieving the log records with a date and amount of books with 2 or less copies
+ - **2** -> Execute the query retrieving the log records with a date and amount of books with two or fewer copies
  - **3** -> A querying App with receive any over books table with attributes "BookTitle", "Category", "Description", "Price", "Rating" and "Availability". Any SQL statement is available and returns the query result.
 
 ### Pipeline to update data using Airflow 
-I'am use the Apache Airflow to schedule a DAG with four tasks to scrapping, transform and update data into PostgreSQL database. The steps of this orchestration are:
+I'm using Apache Airflow to schedule a DAG with four tasks scrapping, transforming, and updating data into the PostgreSQL database. The steps of this orchestration are:
 
 ![Pipeline with Airflow](https://github.com/lsrusp/cayenaTest/blob/main/pipeline.jpg)
 
- - **Scrapping**:  scripts related to extract data from web source to local prataform
+ - **Scrapping**:  scripts related to extracting data from web source to local platform
  - **CheckDatabase**: scripts based on SQL statements to check database schema and consistency model
  - **TransformData**: scripts to read and process web source to be inserted into PostgreSQL, using python and SQL functions
- - **GetCopiesBooks**: SQL scripts to update a log table related to amount of copies into bookstore plataform.
+ - **GetCopiesBooks**: SQL scripts to update a log table related to the number of copies into the bookstore platform.
 
 #### Author
 Lucas Santiago Rodrigues 
