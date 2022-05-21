@@ -1,4 +1,3 @@
-
 ## Bookstore Data Platform - Documentation 
 
 ### Description
@@ -17,7 +16,7 @@ This project provides a command-line tool to support data analysis based on SQL 
  - **processingBooks.py**: script with ETL functions to transform and save data into database using SQL statements.
 
 ### Command-Line Functions
-To execute this program, execute the statement in the python environment: **python main.py**:
+To execute this program, execute the statement in the CMD/Terminal: `python main.py`:
 Command-List:
 
  - **0** -> Exit of program
@@ -26,3 +25,15 @@ Command-List:
  - **3** -> A querying App with receive any over books table with attributes "BookTitle", "Category", "Description", "Price", "Rating" and "Availability". Any SQL statement is available and returns the query result.
 
 ### Pipeline to update data using Airflow 
+I'am use the Apache Airflow to schedule a DAG with four tasks to scrapping, transform and update data into PostgreSQL database. The steps of this orchestration are:
+
+![Pipeline with Airflow](https://github.com/lsrusp/cayenaTest/blob/main/pipeline.jpg)
+
+ - **Scrapping**:  scripts related to extract data from web source to local prataform
+ - **CheckDatabase**: scripts based on SQL statements to check database schema and consistency model
+ - **TransformData**: scripts to read and process web source to be inserted into PostgreSQL, using python and SQL functions
+ - **GetCopiesBooks**: SQL scripts to update a log table related to amount of copies into bookstore plataform.
+
+#### Author
+Lucas Santiago Rodrigues 
+Contato: 17 992487365 / [lucas1613@gmail.com](lucas1613@gmail.com)
